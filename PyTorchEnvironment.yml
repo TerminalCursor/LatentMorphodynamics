@@ -1,0 +1,41 @@
+name: pt_111
+
+dependencies:
+ - python=3.8
+ - ninja
+ - tqdm
+ - h5py
+ - pyyaml
+ - sharedarray
+ - tensorboard
+ - tensorboardx
+ - pytorch
+ - torchvision
+ - torchaudio
+ - yapf
+ - addict
+ - einops
+ - scipy
+ - plyfile
+ - termcolor
+ - pytorch-cluster
+ - pytorch-scatter
+ - pytorch-sparse
+ - pandas
+ - matplotlib
+ - scikit-learn
+ - ipykernel
+ - pip:
+   - torch-geometric
+   - spconv-cu111
+   - open3d
+
+channel_priority: strict
+channels:
+ - pyg
+ - nvidia
+ - pytorch
+ - conda-forge
+ - anaconda
+ - defaults
+ - nodefaults

@@ -1,0 +1,25 @@
+name: tf_112
+
+dependencies:
+ - python
+ - tensorflow-gpu
+ - cudatoolkit==11.2
+ - ipykernel
+ - tqdm
+ - tifffile
+ - scipy
+ - pandas
+ - matplotlib
+ - scikit-learn==1.0.2
+ - scikit-image
+ - seaborn
+
+channel_priority: strict
+channels:
+ - pyg
+ - nvidia
+ - pytorch
+ - conda-forge
+ - anaconda
+ - defaults
+ - nodefaults

@@ -1,0 +1,31 @@
+name: pt_cpu
+
+dependencies:
+ - python=3.8
+ - ninja
+ - tqdm
+ - pytorch=1.13.1
+ - torchvision
+ - torchaudio
+ - h5py
+ - pyyaml
+ - sharedarray
+ - tensorboard
+ - tensorboardx
+ - yapf
+ - addict
+ - einops
+ - scipy
+ - plyfile
+ - termcolor
+ - pytorch-cluster
+ - pytorch-scatter
+ - pytorch-sparse
+ - pandas
+ - matplotlib
+ - scikit-learn
+ - ipykernel
+ - pip:
+   - torch-geometric
+   - spconv-cu113
+   - open3d

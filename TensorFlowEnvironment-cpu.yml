@@ -1,0 +1,25 @@
+name: tf_cpu
+
+dependencies:
+ - python
+ - tensorflow
+ - ipykernel
+ - tqdm
+ - tifffile
+ - scipy
+ - pandas
+ - matplotlib
+ - scikit-learn==1.0.2
+ - scikit-image
+ - seaborn
+ - jupyter
+
+channel_priority: strict
+channels:
+ - pyg
+ - nvidia
+ - pytorch
+ - conda-forge
+ - anaconda
+ - defaults
+ - nodefaults
