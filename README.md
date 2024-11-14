@@ -14,13 +14,11 @@ TODO: Fill in figures
 
 #### Spheroid
 
-![Spheroid Invasions](figures/Figure1.png "Spheroid Invasions")
+![Spheroid Invasions](figures/Figure2.png "Spheroid Invasions")
 
 #### Drug Treatments
 
-![CN03](figures/CN03.png "CN03 Drug Treatment")
-
-![Y27632](figures/Y27632.png "Y27632 Drug Treatment")
+![Drug Treatments](figures/DrugTreatments.png "CN03 & Y27632 Drug Treatment")
 
 ### Latent Dimensions
 
