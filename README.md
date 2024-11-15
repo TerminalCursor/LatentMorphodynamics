@@ -2,8 +2,6 @@
 
 [Paper - TBD](https://void)
 
-TODO: Fill in figures
-
 ## Overview
 
 ### Figure 1
