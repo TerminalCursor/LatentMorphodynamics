@@ -26,18 +26,43 @@
 
 Using any conda-related python package manager, (substituting conda for micro-/miniconda).
 
+### Tensorflow Environment
+
+#### With CUDA Support
+
 ```sh
-# Tensorflow Envrionment (w/ CUDA)
 conda env create -f TensorFlowEnvironment.yml
-# Tensorflow Envrionment (w/o CUDA)
+```
+
+#### Without CUDA Support
+
+```sh
 conda env create -f TensorFlowEnvironment-cpu.yml
-# PyTorch Envrionment (w/ CUDA)
+```
+
+### PyTorch Environment
+
+#### With CUDA Support
+
+```sh
 conda env create -f PyTorchEnvironment.yml
-# PyTorch Envrionment (w/o CUDA)
+```
+
+#### Without CUDA Support
+
+```sh
 conda env create -f PyTorchEnvironment-cpu.yml
-# To provide the source code (running in the root of this git repo):
+```
+
+### Providing Source Code
+
+```sh
 export PYTHONPATH="${PYTHONPATH:+"${PYTHONPATH}:"}${PWD}/code/"
-# Adding a jupyter kernel (After installing an environment and activating it)
+```
+
+### Installing a Jupyter Kernel
+
+```sh
 python3 -m ipykernel install --user --name <NAME>
 ```
 
