@@ -278,19 +278,20 @@ class AdversarialAutoencoder:
         self.val_ae_metric.reset_states()
         self.val_adv_metric.reset_states()
         self.val_gan_metric.reset_states()
-        print(
-            fmt
-            % (
-                0,
-                NaN,
-                val_ae,
-                fmtter(val_adv),
-                fmtter(val_gan),
-                NaN,
-                NaN,
-                NaN,
+        if output:
+            print(
+                fmt
+                % (
+                    0,
+                    NaN,
+                    val_ae,
+                    fmtter(val_adv),
+                    fmtter(val_gan),
+                    NaN,
+                    NaN,
+                    NaN,
+                )
             )
-        )
         for epoch in range(epoch_count):
             start_time = time()
 
