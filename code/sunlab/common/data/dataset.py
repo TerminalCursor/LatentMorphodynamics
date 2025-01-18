@@ -212,30 +212,33 @@ class Dataset:
             if equal_classes:
                 # Ensure the split balances the prevalence of each class
                 assert len(self.labels.shape) == 1, "1D Classification Only Currently"
-                classification_breakdown = unique(self.labels, return_counts=True)
+                classification_breakdown, classification_breakdown_counts = unique(self.labels, return_counts=True)
                 train_count = min(
                     [
                         train_count,
                         classification_breakdown.shape[0]
-                        * min(classification_breakdown[1]),
+                        * min(classification_breakdown_counts),
                     ]
                 )
-                class_size = train_count / classification_breakdown.shape[0]
+                class_size = int(floor(train_count / classification_breakdown.shape[0]))
                 class_indicies = [
                     permutation(where(self.labels == _class)[0])
-                    for _class in classification_breakdown[0]
+                    for _class in classification_breakdown
                 ]
-                class_indicies = [indexes[:class_size] for indexes in class_indicies]
-                train_class_indicies = hstack(class_indicies).squeeze()
+                tclass_indicies = [indexes[:class_size] for indexes in class_indicies]
+                vclass_indicies = [indexes[class_size:] for indexes in class_indicies]
+                train_class_indicies = hstack(tclass_indicies).squeeze()
                 train_class_indicies = permutation(train_class_indicies)
+                val_class_indicies = hstack(vclass_indicies).squeeze()
+                val_class_indicies = permutation(val_class_indicies)
                 training_data = self.dataset[train_class_indicies, ...]
                 training_labels = self.labels[train_class_indicies]
                 if len(self.labels.shape) > 1:
                     training_labels = self.labels[train_class_indicies,...]
-                validation_data = delete(self.dataset, train_class_indicies, axis=0)
-                validation_labels = delete(
-                    self.labels, train_class_indicies, axis=0
-                ).squeeze()
+                validation_data = self.dataset[val_class_indicies, ...]
+                validation_labels = self.labels[val_class_indicies]
+                if len(self.labels.shape) > 1:
+                    validation_labels = self.labels[val_class_indicies,...]
             else:
                 training_labels = self.labels[:train_count]
                 if len(training_labels.shape) > 1:
