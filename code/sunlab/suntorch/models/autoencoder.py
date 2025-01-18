@@ -11,12 +11,14 @@ class Autoencoder:
     """# Autoencoder Model"""
 
     def __init__(
-        self, data_dim, latent_dim, enc_dec_size, negative_slope=0.3, dropout=0.0
+        self, data_dim, latent_dim, enc_dec_size, depth=2, relu_type=1, negative_slope=0.3, dropout=0.0
     ):
         self.encoder = Encoder(
             data_dim,
             enc_dec_size,
             latent_dim,
+            depth=depth,
+            relu_type=relu_type,
             negative_slope=negative_slope,
             dropout=dropout,
         )
@@ -24,6 +26,8 @@ class Autoencoder:
             data_dim,
             enc_dec_size,
             latent_dim,
+            depth=depth,
+            relu_type=relu_type,
             negative_slope=negative_slope,
             dropout=dropout,
         )
