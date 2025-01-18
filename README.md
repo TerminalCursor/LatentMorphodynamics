@@ -22,6 +22,23 @@
 
 ![Model Training per Dimension](figures/SI_model_training.png "Model Training")
 
+## Environment Setup
+
+Using any conda-related python package manager, (substituting conda for micro-/miniconda).
+
+```sh
+# Tensorflow Envrionment (w/ CUDA)
+conda env create -f TensorFlowEnvironment.yml
+# Tensorflow Envrionment (w/o CUDA)
+conda env create -f TensorFlowEnvironment-cpu.yml
+# PyTorch Envrionment (w/ CUDA)
+conda env create -f PyTorchEnvironment.yml
+# PyTorch Envrionment (w/o CUDA)
+conda env create -f PyTorchEnvironment-cpu.yml
+# To provide the source code (running in the root of this git repo):
+export PYTHONPATH="${PYTHONPATH:+"${PYTHONPATH}:"}${PWD}/code/"
+```
+
 ## Usage
 
 Example notebooks can be found in [notebooks/](notebooks/). Source code can be found in [code/](code/). Briefly, the [Tensorflow](https://www.tensorflow.org/) implementation is found in [code/sunlab/sunflow/](code/sunlab/sunflow) and the [PyTorch](https://pytorch.org/) implementation can be found in [code/sunlab/sunflow/](code/sunlab/suntorch). Environments used can be found in the source Yaml files ready to be used with [Anaconda](https://www.anaconda.com/) or related technology.
