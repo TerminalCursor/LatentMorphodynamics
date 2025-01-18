@@ -37,6 +37,8 @@ conda env create -f PyTorchEnvironment.yml
 conda env create -f PyTorchEnvironment-cpu.yml
 # To provide the source code (running in the root of this git repo):
 export PYTHONPATH="${PYTHONPATH:+"${PYTHONPATH}:"}${PWD}/code/"
+# Adding a jupyter kernel (After installing an environment and activating it)
+python3 -m ipykernel install --user --name <NAME>
 ```
 
 ## Usage
