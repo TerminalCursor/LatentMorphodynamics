@@ -1,5 +1,8 @@
 DIR_ROOT = "../"
 FILES = {
+    "SAMPLE_DATA": {
+        "3mgmL_subsampled": DIR_ROOT + "data/sample_data/Spheroid_3p0mgmL_2kr.csv"
+    },
     "TRAINING_DATASET": DIR_ROOT + "data/spheroid26_011523_filtered.csv",
     "TRAINING_DATASET_WIDE_BERTH": DIR_ROOT + "data/spheroid26_011523_exc.csv",
     "PRETRAINED_MODEL_DIR": DIR_ROOT + "models/current_model/",
@@ -260,6 +263,10 @@ FILES = {
     "SVM": {
         "MODEL": DIR_ROOT + "other/svm/SVC_rbf_010820_16942_new.pkl",
         "SCALER": DIR_ROOT + "other/svm/SVC_rbf_scaler_010820_16942_new.pkl",
+        "ONNX": {
+            "MODEL": DIR_ROOT + "models/svm/SVM_clf.onnx",
+            "SCALER": DIR_ROOT + "models/svm/SVM_scaler.onnx",
+        },
     },
     "NONPHYSICAL_MASK": DIR_ROOT + "extra_data/NonPhysicalMask.npy",
 }
