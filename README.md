@@ -100,6 +100,13 @@ Other, more messy, analysis notebooks can be found on the `analysis` branch: `gi
 These notebooks encompass the remaining analyses found in the paper.
 The spheroid images that were segmented and processed can be found at the [Figshare Collection](https://doi.org/10.6084/m9.figshare.c.7539075).
 
+### Older Notebooks
+
+Older notebooks are also found in `old_notebooks`, which include:
+ - Notebook used to transfer the model from Tensorflow to PyTorch
+ - Example loading the pretrained model in PyTorch
+ - Notebook generating the plots for the performance of different latent sizes
+
 ## Pretrained Model Information
 
 The MaxAbsScaler contains the scaling factors to transform the morphological features to the normalized features. The morphological features were derived from 1024x1024 pixel images on a confocal microscope (0.4NA, 10x objective) with a pixel to micron ratio of 1.075268.
