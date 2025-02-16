@@ -97,3 +97,19 @@ BaseDirectory
   `-svm.csv (Output file)
 ```
 In each of the `*.mat` files, there should be two keys provided: `image` a (W,H,C) frame image and `labels` a (W,H) integer array of segmentations with the background set to `0`.
+
+## SVM
+
+In order to classify the morphological data to phenotypes, an additonal package must be installed: `onnxruntime` with `pip install onnxruntime` with the environment active.
+
+### Usage
+
+An example processing the data to the classification:
+```python3
+from sunlab.globals import FILES
+from sunab.svm import *
+dataset = dataframe[component_columns].to_numpy()
+pixel2dist = 1.075268 # Change to pixel to micron ratio of the images the data was sourced from
+svm_scaler, svm_clf = svm_load(FILES['SVM']['ONNX']['SCALER'], FILES['SVM']['ONNX']['MODEL'])
+classification = svm_infer(dataset, pixel2dist=pixel2dist, scaler_model=svm_scaler, clf_model=svm_clf)
+```
