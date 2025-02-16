@@ -80,10 +80,39 @@ Two examples of training models can be found in:
  - [Autoencoder](notebooks/Training-Autoencoder.ipynb)
  - [Adversarial Autoencoder](notebooks/Training-AdversarialAutoencoder.ipynb)
 
+Essentially:
+```python3
+desired_distribution = GaussianDistribution # None if you want just an AE
+training_dataset_filepath = 'data/sample_data/Spheroid_3p0mgmL_2kr.csv'
+model_save_folder = 'models/aae/'
+model, dataset = create_aae_and_dataset(training_dataset_filepath,
+	model_save_folder,
+	distribution=desired_distribution,
+	shuffle=True, val_split=0.1)
+epochs = 10
+model.train(dataset, epochs, output=True, output_freq=5)
+```
+
 ### Pretrained
 
 One example using a pretrained model on sample data can be found in:
  - [Adversarial Autoencoder](notebooks/Inference-AdversarialAutoencoder.ipynb)
+
+Essentially:
+```python3
+data_scaler = MaxAbsScaler # Default scaler
+training_dataset_filepath = 'data/sample_data/Spheroid_3p0mgmL_2kr.csv'
+model_save_folder = 'models/aae/'
+model, dataset = load_aae_and_dataset(training_dataset_filepath,
+	model_save_folder,
+	data_scaler)
+mlv = model.encoder(dataset.dataset).numpy()
+labels = dataset.labels
+# Leave out cmap=, c= arguments if the data has no phenotype labels
+plt.scatter(mlv[:,0], mlv[:,1], cmap=Pmap, c=labels, s=1)
+# Draw boundary region
+plt.apply_boundary()
+```
 
 ### Applying to a LIVECell Dataset
 
