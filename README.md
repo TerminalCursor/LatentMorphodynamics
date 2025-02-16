@@ -72,11 +72,33 @@ When starting a Jupyter server, make sure the PYTHONPATH has the `code/` directo
 
 Example notebooks can be found in [notebooks/](notebooks/). Source code can be found in [code/](code/). Briefly, the [Tensorflow](https://www.tensorflow.org/) implementation is found in [code/sunlab/sunflow/](code/sunlab/sunflow) and the [PyTorch](https://pytorch.org/) implementation can be found in [code/sunlab/sunflow/](code/sunlab/suntorch). Environments used can be found in the source Yaml files ready to be used with [Anaconda](https://www.anaconda.com/) or related technology.
 
-## Training
+## Notebooks
 
-An example of training a standard autoencoder can be found in [notebooks/Autoencoder.ipynb](notebooks/Autoencoder.ipynb).
+### Training
 
-TODO: More implementations
+Two examples of training models can be found in:
+ - [Autoencoder](notebooks/Training-Autoencoder.ipynb)
+ - [Adversarial Autoencoder](notebooks/Training-AdversarialAutoencoder.ipynb)
+
+### Pretrained
+
+One example using a pretrained model on sample data can be found in:
+ - [Adversarial Autoencoder](notebooks/Inference-AdversarialAutoencoder.ipynb)
+
+### Applying to a CELLLive Dataset
+
+One example of the segmentation to latent space pipeline can be found in:
+ - [LIVECell - MCF7](notebooks/LIVECell-Example-MCF7.ipynb)
+This notebook demonstrates the processing of segmentation frames to matlab files, processing the segmentations to morphologies, then projecting to a latent space.
+MATLAB is required to turn the segmentations to Morphology Features.
+
+By changing the CELL variable, as described in the header cell of the notebook, other cell lines can be segmented.
+
+### Other Analysis Notebooks
+
+Other, more messy, analysis notebooks can be found on the `analysis` branch: `git switch analysis`.
+These notebooks encompass the remaining analyses found in the paper.
+The spheroid images that were segmented and processed can be found at the [Figshare Collection](https://doi.org/10.6084/m9.figshare.c.7539075).
 
 ## Pretrained Model Information
 
