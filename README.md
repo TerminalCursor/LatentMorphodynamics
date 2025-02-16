@@ -81,3 +81,19 @@ TODO: More implementations
 ## Pretrained Model Information
 
 The MaxAbsScaler contains the scaling factors to transform the morphological features to the normalized features. The morphological features were derived from 1024x1024 pixel images on a confocal microscope (0.4NA, 10x objective) with a pixel to micron ratio of 1.075268.
+
+## Obtaining Morphological data from Segmentations
+
+In order to obtain the morphological vector components for each segmentation, we use the `CellTrack_DL.m` script, obtainable from [Chris Eddy's Github](https://github.com/eddy6081/CellTrack/) in the Matlab folder. We recommend the following folder structure for processing the segmentations to MFVs:
+```
+BaseDirectory
+|-detections <- Set the mat_path to this directory's absolute path
+| |-Frame_001.mat
+| |-Frame_002.mat
+| `-...
+`-svm <- set the save_path to this directory's absolute path
+  |-Image_001.tif (Output file)
+  |-...
+  `-svm.csv (Output file)
+```
+In each of the `*.mat` files, there should be two keys provided: `image` a (W,H,C) frame image and `labels` a (W,H) integer array of segmentations with the background set to `0`.
