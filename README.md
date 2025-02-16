@@ -98,6 +98,9 @@ BaseDirectory
 ```
 In each of the `*.mat` files, there should be two keys provided: `image` a (W,H,C) frame image and `labels` a (W,H) integer array of segmentations with the background set to `0`.
 
+### CellTrack_DL.m Modifications
+In order to automatically process files in MATLAB batch mode more efficiently, a slightly modified version of `CellTrack_DL.m` was used and is provided in `extra_data/CellTrack_DL.m`.
+
 ## SVM
 
 In order to classify the morphological data to phenotypes, an additonal package must be installed: `onnxruntime` with `pip install onnxruntime` with the environment active.
