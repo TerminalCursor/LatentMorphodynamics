@@ -85,7 +85,7 @@ Two examples of training models can be found in:
 One example using a pretrained model on sample data can be found in:
  - [Adversarial Autoencoder](notebooks/Inference-AdversarialAutoencoder.ipynb)
 
-### Applying to a CELLLive Dataset
+### Applying to a LIVECell Dataset
 
 One example of the segmentation to latent space pipeline can be found in:
  - [LIVECell - MCF7](notebooks/LIVECell-Example-MCF7.ipynb)
@@ -129,6 +129,8 @@ In each of the `*.mat` files, there should be two keys provided: `image` a (W,H,
 
 ### CellTrack_DL.m Modifications
 In order to automatically process files in MATLAB batch mode more efficiently, a slightly modified version of `CellTrack_DL.m` was used and is provided in `extra_data/CellTrack_DL.m`.
+
+With this modification, the files can be processed in batch mode, substituting the `{MAT_PATH}` and `{SAVE_PATH}` absolute paths, with: `matlab -batch "save_path='{SAVE_PATH}';mat_path='{MAT_PATH}';run('Matlab/CellTrack_DL.m');exit;"`
 
 ## SVM
 
