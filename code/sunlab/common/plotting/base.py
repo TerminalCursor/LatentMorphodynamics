@@ -210,6 +210,7 @@ def plot_trajectory(
     frame_column="Frames",
     alpha=0.8,
     lw=4,
+    colormap='plasma',
     _plt=None,
     _z=None,
 ):
@@ -252,7 +253,7 @@ def plot_trajectory(
     segments = np.concatenate([points[:-1], points[1:]], axis=1)
     lc = LineCollection(
         segments,
-        cmap=plt.get_cmap("plasma"),
+        cmap=plt.get_cmap(colormap),
         norm=mpl.colors.Normalize(Fm, FM),
     )
     if _z is not None:
