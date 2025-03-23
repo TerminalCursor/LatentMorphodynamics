@@ -91,3 +91,14 @@ def load_aae_and_dataset(
         dataset_file_name, magnification=magnification, scaler=model.scaler
     )
     return model, dataset
+
+def load_aae_finetune(model_directory, normalization_scaler: AdversarialScaler):
+    """# Load Adversarial Autoencoder
+
+    - model_directory: str = Path to save the model in
+    - normalization_scaler: AdversarialScaler = Data normalization Scaler Model
+    """
+    the_aae = AdversarialAutoencoder(model_directory, None, normalization_scaler).load()
+    the_aae.autoencoder.init(the_aae.encoder, the_aae.decoder)
+    the_aae.encoder_discriminator.init(the_aae.encoder, the_aae.discriminator)
+    return the_aae
