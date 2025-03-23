@@ -114,6 +114,23 @@ plt.scatter(mlv[:,0], mlv[:,1], cmap=Pmap, c=labels, s=1)
 plt.apply_boundary()
 ```
 
+### Finetuning
+
+You may also finetune a tensorflow model.
+The process to load in the fine-tuning model, where all but the last layer of the encoder, decoder, and discriminator are frozen, is:
+```python3
+model = load_aae_finetune("models/frozen_model/", MaxAbsScaler)
+model.init_optimizers_and_metrics()
+BATCH_SIZE=1024
+MAGNIFICATION=10
+SHUFFLE=True
+VAL_SPLIT=0.1
+SCALER=model.scaler
+dataset = import_dataset('data/sample_data/Spheroid_3p0mgmL_2kr.csv', MAGNIFICATION, BATCH_SIZE, SHUFFLE, val_split=VAL_SPLIT, scaler=SCALER)
+EPOCHS=1
+model.train(dataset, EPOCHS)
+```
+
 ### Applying to a LIVECell Dataset
 
 One example of the segmentation to latent space pipeline can be found in:
